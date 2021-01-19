@@ -1,7 +1,7 @@
 import unittest
 
 
-def merge_ranges(meetings):
+def merge_ranges(meetings: list) -> list:
     meetings.sort()
     merged_meetings = []
     start = meetings[0][0]
@@ -18,7 +18,6 @@ def merge_ranges(meetings):
     
     merged_meetings.append((start, end))
 
-    print(merged_meetings)
     return merged_meetings
 
 

@@ -1,7 +1,7 @@
 import unittest
 
 
-def reverse(list_of_chars):
+def reverse(list_of_chars: list) -> list:
 
     loop_length = len(list_of_chars) - 1
     

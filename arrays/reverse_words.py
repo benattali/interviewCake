@@ -1,7 +1,7 @@
 import unittest
 
 
-def reverse_words(message):
+def reverse_words(message: list) -> list:
     if not message:
         return(message)
     
@@ -22,7 +22,6 @@ def reverse_words(message):
         message.extend(' ')
         message.extend(word)
     
-    print(''.join(message))
     return(message)
 
 # Tests
