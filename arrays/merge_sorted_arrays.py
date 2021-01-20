@@ -2,7 +2,7 @@ import unittest
 import itertools
 
 
-def compare_tuple_to_last_list_element(merged_list: list, smaller: int, larger: int) -> None:
+def compare_tuple_to_last_list_element(merged_list: list[int], smaller: int, larger: int) -> None:
     if merged_list and smaller > merged_list[-1]:
                 merged_list.extend([smaller, larger])
     else:
@@ -10,7 +10,7 @@ def compare_tuple_to_last_list_element(merged_list: list, smaller: int, larger: 
         merged_list.append(larger)
 
 
-def merge_lists(my_list: list, alices_list: list) -> list:
+def merge_lists(my_list: list[int], alices_list: list[int]) -> list[int]:
     merged_list = []
 
     for list_elems in itertools.zip_longest(my_list, alices_list):
@@ -34,7 +34,7 @@ def merge_lists(my_list: list, alices_list: list) -> list:
             else:
                 compare_tuple_to_last_list_element(merged_list=merged_list, smaller=first, larger=second)
 
-    return(merged_list)
+    return merged_list
 
 # Tests
 

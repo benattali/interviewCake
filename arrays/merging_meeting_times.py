@@ -1,7 +1,7 @@
 import unittest
 
 
-def merge_ranges(meetings: list) -> list:
+def merge_ranges(meetings: list[tuple]) -> list[tuple]:
     meetings.sort()
     merged_meetings = []
     start = meetings[0][0]

@@ -1,6 +1,6 @@
 import unittest
 
-def is_first_come_first_served(take_out_orders: list, dine_in_orders: list, served_orders: list) -> bool:
+def is_first_come_first_served(take_out_orders: list[int], dine_in_orders: list[int], served_orders: list[int]) -> bool:
     if len(take_out_orders) + len(dine_in_orders) != len(served_orders):
         return False
     

@@ -1,8 +1,7 @@
 import unittest
 
 
-def reverse(list_of_chars: list) -> list:
-
+def reverse(list_of_chars: list[str]) -> list[str]:
     loop_length = len(list_of_chars) - 1
     
     for i in range(loop_length):
@@ -10,7 +9,7 @@ def reverse(list_of_chars: list) -> list:
         char_to_move = list_of_chars.pop(index_to_move)
         list_of_chars.append(char_to_move)
     
-    return(list_of_chars)
+    return list_of_chars
 
 # Tests
 

@@ -1,19 +1,24 @@
 import unittest
 
 
-def can_two_movies_fill_flight(movie_lengths: list, flight_length: int) -> bool:
+def can_two_movies_fill_flight(movie_lengths: list[int], flight_length: int) -> bool:
     if not movie_lengths:
         return False
 
-    movie_one_length = movie_lengths[0]
-    i = 0
+    length_complements = {}
+    count = 0
 
-    while i < len(movie_lengths) - 1:
-        for length in movie_lengths[i+1:]:
-            if movie_one_length + length == flight_length:
-                return True
-        i += 1
-        movie_one_length = movie_lengths[i]
+    for i, length in enumerate(movie_lengths):
+        length_complements[i] = flight_length - length
+
+    for length in movie_lengths:
+        if length == flight_length / 2:
+            count += 1
+        elif length in length_complements.values():
+            return True
+
+    if count >= 2:
+        return True
 
     return False
 
