@@ -1,15 +1,12 @@
 import unittest
 
 
-def reverse(list_of_chars: list[str]) -> list[str]:
-    loop_length = len(list_of_chars) - 1
-    
-    for i in range(loop_length):
-        index_to_move = -2 - i
-        char_to_move = list_of_chars.pop(index_to_move)
-        list_of_chars.append(char_to_move)
-    
-    return list_of_chars
+def reverse(list_of_chars: list[str]):
+    for i in range(len(list_of_chars) // 2):
+        left_side = list_of_chars[i]
+        right_side = list_of_chars[-1 - i]
+        list_of_chars[i] = right_side
+        list_of_chars[-1 - i] = left_side
 
 # Tests
 
