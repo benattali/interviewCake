@@ -13,7 +13,7 @@ def can_two_movies_fill_flight(movie_lengths: list, flight_length: int) -> bool:
             if movie_one_length + length == flight_length:
                 return True
         i += 1
-        movie_one_length = movie_lengths[1]
+        movie_one_length = movie_lengths[i]
 
     return False
 
