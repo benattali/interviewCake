@@ -1,7 +1,7 @@
 import unittest
 
 
-def has_palindrome_permutation(the_string):
+def has_palindrome_permutation(the_string: str) -> bool:
     char_count = {}
 
     for char in the_string:
