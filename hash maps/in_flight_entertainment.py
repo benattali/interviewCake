@@ -14,11 +14,10 @@ def can_two_movies_fill_flight(movie_lengths: list[int], flight_length: int) -> 
     for length in movie_lengths:
         if length == flight_length / 2:
             count += 1
+            if count >= 2:
+                return True
         elif length in length_complements.values():
             return True
-
-    if count >= 2:
-        return True
 
     return False
 
