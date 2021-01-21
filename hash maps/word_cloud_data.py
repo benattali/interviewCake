@@ -8,19 +8,25 @@ class WordCloudData(object):
         self.words_to_counts = {}
 
     def count_words(self):
-        punctuation = ['.', ',', '!', '?', ':', ' ']
+        punctuation = ['.', ',', '!', '?', ':']
         for punc in punctuation:
-            self.input_string = self.input_string.replace(punc, '**')
-        
-        words_list = self.input_string.lower().split('**')
-        
-        for word in words_list:
-            if not word or word == '-':
-                continue
-            elif word in self.words_to_counts:
-                self.words_to_counts[word] += 1
+            self.input_string = self.input_string.replace(punc, ' ')
+        self.input_string = self.input_string.lower() + ' '
+
+        word = ''
+        for char in self.input_string:
+            if char == ' ' :
+                if not word or word == '-':
+                    word = ''
+                    continue
+                try:
+                    self.words_to_counts[word] += 1
+                except KeyError:
+                    self.words_to_counts[word] = 1
+                finally:
+                    word = ''
             else:
-                self.words_to_counts[word] = 1
+                word += char
         
         return self.words_to_counts
 
