@@ -13,6 +13,7 @@ def compare_tuple_to_last_list_element(merged_list: list[int], smaller: int, lar
 def merge_lists(my_list: list[int], alices_list: list[int]) -> list[int]:
     merged_list = []
 
+    # iterate through two lists simultaneously until the longer list is done
     for list_elems in itertools.zip_longest(my_list, alices_list):
         first = list_elems[0]
         second = list_elems[1]

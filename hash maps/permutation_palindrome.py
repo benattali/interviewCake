@@ -5,13 +5,20 @@ def has_palindrome_permutation(the_string: str) -> bool:
     char_count = {}
 
     for char in the_string:
-        if char in char_count:
+        try:
             char_count[char] += 1
-        else:
+        except KeyError:
             char_count[char] = 1
 
     num_of_odd_counts = 0
     for value in char_count.values():
+        # if the value is odd
+            # if the length of the string is even then there is no permutation which can be a palindrome
+                # so return False
+            # otherwise increment the num_of_odd_counts and check if its greater than 1
+                # if it is greater than one (i.e there is more than 1 character which appears an odd amount of times)
+                # there is no permutation which can be a palindrome so return False
+        # otherwise if all the values are even there is a permutation which is a palindrome
         if value % 2 != 0:
             if len(the_string) % 2 == 0:
                 return False

@@ -3,12 +3,15 @@ import re
 
 
 class WordCloudData(object):
-    def __init__(self, input_string):
+    def __init__(self, input_string: str):
         self.input_string = input_string
         self.words_to_counts = {}
 
-    def count_words(self):
+    def count_words(self) -> dict:
         punctuation = ['.', ',', '!', '?', ':']
+        # replace all the punctuation with a space
+        # then transform the string to lower case letters and
+        # add a space at the end (so we can check the final word)
         for punc in punctuation:
             self.input_string = self.input_string.replace(punc, ' ')
         self.input_string = self.input_string.lower() + ' '

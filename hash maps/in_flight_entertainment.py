@@ -8,10 +8,16 @@ def can_two_movies_fill_flight(movie_lengths: list[int], flight_length: int) -> 
     length_complements = {}
     count = 0
 
+    # create a dictionary with the complement movie lengths (i.e the flight length - the movie length)
     for i, length in enumerate(movie_lengths):
         length_complements[i] = flight_length - length
 
     for length in movie_lengths:
+        # if the length is half the flight time (edge case), then you have to make sure there are at least 2 elements of that length
+            # incremenet the count by 1
+            # if the count is 2 or more, return True
+        # otherwise if the length is in the complements dictionary it means that there is a movie length which will add up to the total flight time
+            # so return True
         if length == flight_length / 2:
             count += 1
             if count >= 2:
