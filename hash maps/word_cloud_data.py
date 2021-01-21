@@ -32,10 +32,6 @@ class WordCloudData(object):
 
 # Tests
 
-# There are lots of valid solutions for this one. You
-# might have to edit some of these tests if you made
-# different design decisions in your solution.
-
 class Test(unittest.TestCase):
 
     def test_simple_sentence(self):
