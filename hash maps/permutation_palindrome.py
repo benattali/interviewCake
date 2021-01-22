@@ -5,9 +5,9 @@ def has_palindrome_permutation(the_string: str) -> bool:
     char_count = {}
 
     for char in the_string:
-        try:
+        if char in char_count:
             char_count[char] += 1
-        except KeyError:
+        else:
             char_count[char] = 1
 
     num_of_odd_counts = 0

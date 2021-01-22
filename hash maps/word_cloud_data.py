@@ -22,12 +22,11 @@ class WordCloudData(object):
                 if not word or word == '-':
                     word = ''
                     continue
-                try:
+                if word in self.words_to_counts:
                     self.words_to_counts[word] += 1
-                except KeyError:
+                else:
                     self.words_to_counts[word] = 1
-                finally:
-                    word = ''
+                word = ''
             else:
                 word += char
         
