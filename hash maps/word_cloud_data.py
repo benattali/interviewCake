@@ -1,5 +1,4 @@
 import unittest
-import re
 
 
 class WordCloudData(object):
