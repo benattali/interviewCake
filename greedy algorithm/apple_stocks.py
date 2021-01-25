@@ -61,11 +61,11 @@ class Test(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_error_with_empty_prices(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             get_max_profit([])
 
     def test_error_with_one_price(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError):
             get_max_profit([1])
 
 
