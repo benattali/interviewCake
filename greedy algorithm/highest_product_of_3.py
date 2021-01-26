@@ -5,23 +5,42 @@ def highest_product_of_3(list_of_ints: list[int]) -> int:
     if len(list_of_ints) < 3:
         raise ValueError("The list provided has less than 3 numbers")
 
+    # create 2 lists of numbers, one for the negative case, one for the positive case
+    # and sort both
     first = list_of_ints[0]
     second = list_of_ints[1]
     third = list_of_ints[2]
     largest_nums = [first, second, third]
+    negative_list = [first, second, third]
     largest_nums.sort()
+    negative_list.sort()
 
     if len(list_of_ints) >= 3:
         for num in list_of_ints[3:]:
+            # if num is negative
+                # if num is less than the first element of negative_list
+                    # assign the first element of negative_list to num
+                # if num is less than the second element of negative_list
+                    # assing the second element of negative_list to num
+            # if num is greater than the smallest element in largest_nums
+                # assign the first element (smallest number) to num, then sort the list
+            if num < 0:
+                if num < negative_list[0]:
+                    negative_list[0] = num
+                elif num < negative_list[1]:
+                    negative_list[1] = num
             if num > largest_nums[0]:
                 largest_nums[0] = num
                 largest_nums.sort()
 
-    largest_product = 1
-    for num in largest_nums:
-        largest_product *= num
+    largest_product_positive = 1
+    largest_product_negative = 1
+    for i in range(len(largest_nums)):
+        largest_product_positive *= largest_nums[i]
+        largest_product_negative *= negative_list[i]
 
-    return largest_product
+    max_product = max(largest_product_negative, largest_product_positive)
+    return max_product
 
 # Tests
 
