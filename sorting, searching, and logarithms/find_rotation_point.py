@@ -66,6 +66,31 @@ class Test(unittest.TestCase):
         expected = -1
         self.assertEqual(actual, expected)
 
+    def test_odd_elements_in_list(self):
+        actual = find_rotation_point(['f', 'j', 'l', 'c', 'd'])
+        expected = 3
+        self.assertEqual(actual, expected)
+    
+    def test_even_elements_in_list(self):
+        actual = find_rotation_point(['f', 'j', 'l', 'c', 'd', 'e'])
+        expected = 3
+        self.assertEqual(actual, expected)
+    
+    def test_rotation_point_directly_left_of_middle(self):
+        actual = find_rotation_point(['r', 'a', 'd', 'k', 'o'])
+        expected = 1
+        self.assertEqual(actual, expected)
+
+    def test_rotation_point_directly_right_of_middle(self):
+        actual = find_rotation_point(['r', 'u', 'z', 'k', 'o'])
+        expected = 3
+        self.assertEqual(actual, expected)
+    
+    def test_rotation_point_is_middle(self):
+        actual = find_rotation_point(['r', 'u', 'd', 'k', 'o'])
+        expected = 2
+        self.assertEqual(actual, expected)
+
     def test_error_with_empty_words(self):
         with self.assertRaises(ValueError):
             find_rotation_point([])
