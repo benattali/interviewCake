@@ -18,12 +18,12 @@ def highest_product_of_3(list_of_ints: list[int]) -> int:
     if len(list_of_ints) >= 3:
         for num in list_of_ints[3:]:
             # if num is negative
-                # if num is less than the first element of negative_list
-                    # assign the first element of negative_list to num
-                # if num is less than the second element of negative_list
-                    # assing the second element of negative_list to num
+            # if num is less than the first element of negative_list
+            # assign the first element of negative_list to num
+            # if num is less than the second element of negative_list
+            # assing the second element of negative_list to num
             # if num is greater than the smallest element in largest_nums
-                # assign the first element (smallest number) to num, then sort the list
+            # assign the first element (smallest number) to num, then sort the list
             if num < 0:
                 if num < negative_list[0]:
                     negative_list[0] = num
@@ -42,10 +42,11 @@ def highest_product_of_3(list_of_ints: list[int]) -> int:
     max_product = max(largest_product_negative, largest_product_positive)
     return max_product
 
+
 # Tests
 
-class Test(unittest.TestCase):
 
+class Test(unittest.TestCase):
     def test_short_list(self):
         actual = highest_product_of_3([1, 2, 3, 4])
         expected = 24

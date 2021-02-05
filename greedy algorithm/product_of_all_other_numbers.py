@@ -1,5 +1,4 @@
 import unittest
-import math
 
 
 def get_products_of_all_ints_except_at_index(int_list: list[int]) -> list[int]:
@@ -16,7 +15,7 @@ def get_products_of_all_ints_except_at_index(int_list: list[int]) -> list[int]:
     for i in range(list_length):
         products_all_ints_except_index[i] = product
         product *= int_list[i]
-    
+
     # multiply the int at current index of products_all_ints_except_index by the product
     product = 1
     for i in range(list_length - 1, -1, -1):
@@ -25,10 +24,11 @@ def get_products_of_all_ints_except_at_index(int_list: list[int]) -> list[int]:
 
     return products_all_ints_except_index
 
+
 # Tests
 
-class Test(unittest.TestCase):
 
+class Test(unittest.TestCase):
     def test_small_list(self):
         actual = get_products_of_all_ints_except_at_index([1, 2, 3])
         expected = [6, 3, 2]

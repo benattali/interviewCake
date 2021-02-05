@@ -20,8 +20,8 @@ def shuffle(the_list: list[int]) -> None:
 
 
 sample_list = [1, 2, 3, 4, 5]
-print('Sample list:', sample_list)
+print("Sample list:", sample_list)
 
-print('Shuffling sample list...')
+print("Shuffling sample list...")
 shuffle(sample_list)
 print(sample_list)

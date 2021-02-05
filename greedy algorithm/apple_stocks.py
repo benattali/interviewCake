@@ -1,9 +1,12 @@
 import unittest
 
+
 def get_max_profit(stock_prices: list[int]) -> int:
     if len(stock_prices) < 2:
-        raise ValueError(f'Not enough data to calculate the profit. There are less than 2 stocks')
-    
+        raise ValueError(
+            f"Not enough data to calculate the profit. There are less than 2 stocks"
+        )
+
     # initialize buy, sell and best_yield
     buy = stock_prices[0]
     sell = stock_prices[1]
@@ -12,15 +15,15 @@ def get_max_profit(stock_prices: list[int]) -> int:
 
     for i, price in enumerate(stock_prices[1:]):
         # if we are not looking at the last element
-            # if the price is lower than the buy
-                # set up place holder buy and sell
-                # if the place holder buy and sell provide a better yield
-                    # set the new buy, sell and best_yield
+        # if the price is lower than the buy
+        # set up place holder buy and sell
+        # if the place holder buy and sell provide a better yield
+        # set the new buy, sell and best_yield
         # if the price is greater than sell
-            # set the new sell amount and calculate the best_yield
+        # set the new sell amount and calculate the best_yield
         if price < buy and i != stock_length - 2:
             temp_buy = price
-            temp_sell = stock_prices[i+2]
+            temp_sell = stock_prices[i + 2]
             if temp_sell - temp_buy > best_yield:
                 buy = temp_buy
                 sell = temp_sell
@@ -31,10 +34,11 @@ def get_max_profit(stock_prices: list[int]) -> int:
 
     return best_yield
 
+
 # Tests
 
-class Test(unittest.TestCase):
 
+class Test(unittest.TestCase):
     def test_price_goes_up_then_down(self):
         actual = get_max_profit([1, 5, 3, 2])
         expected = 4

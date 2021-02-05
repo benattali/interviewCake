@@ -1,26 +1,34 @@
 import unittest
 
-def is_first_come_first_served(take_out_orders: list[int], dine_in_orders: list[int], served_orders: list[int]) -> bool:
+
+def is_first_come_first_served(
+    take_out_orders: list[int], dine_in_orders: list[int], served_orders: list[int]
+) -> bool:
     if len(take_out_orders) + len(dine_in_orders) != len(served_orders):
         return False
-    
+
     take_out_orders_index = 0
     dine_in_orders_index = 0
-    
+
     for i in range(len(served_orders)):
-        if (take_out_orders_index <= (len(take_out_orders) - 1)) and (served_orders[i] == take_out_orders[take_out_orders_index]):
+        if (take_out_orders_index <= (len(take_out_orders) - 1)) and (
+            served_orders[i] == take_out_orders[take_out_orders_index]
+        ):
             take_out_orders_index += 1
-        elif (dine_in_orders_index <= (len(dine_in_orders) - 1)) and (served_orders[i] == dine_in_orders[dine_in_orders_index]):
+        elif (dine_in_orders_index <= (len(dine_in_orders) - 1)) and (
+            served_orders[i] == dine_in_orders[dine_in_orders_index]
+        ):
             dine_in_orders_index += 1
         else:
             return False
 
     return True
 
+
 # Tests
 
-class Test(unittest.TestCase):
 
+class Test(unittest.TestCase):
     def test_both_registers_have_same_number_of_orders(self):
         result = is_first_come_first_served([1, 4, 5], [2, 3, 6], [1, 2, 3, 4, 5, 6])
         self.assertTrue(result)
@@ -50,7 +58,10 @@ class Test(unittest.TestCase):
         self.assertFalse(result)
 
     def test_order_numbers_are_not_sequential(self):
-        result = is_first_come_first_served([27, 12, 18], [55, 31, 8], [55, 31, 8, 27, 12, 18])
+        result = is_first_come_first_served(
+            [27, 12, 18], [55, 31, 8], [55, 31, 8, 27, 12, 18]
+        )
         self.assertTrue(result)
+
 
 unittest.main(verbosity=2)

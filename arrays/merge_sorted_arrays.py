@@ -2,9 +2,11 @@ import unittest
 import itertools
 
 
-def compare_tuple_to_last_list_element(merged_list: list[int], smaller: int, larger: int) -> None:
+def compare_tuple_to_last_list_element(
+    merged_list: list[int], smaller: int, larger: int
+) -> None:
     if merged_list and smaller > merged_list[-1]:
-                merged_list.extend([smaller, larger])
+        merged_list.extend([smaller, larger])
     else:
         merged_list.insert(-1, smaller)
         merged_list.append(larger)
@@ -23,7 +25,9 @@ def merge_lists(my_list: list[int], alices_list: list[int]) -> list[int]:
 
         if (not first and not merged_list) or (not first and second > merged_list[-1]):
             merged_list.append(second)
-        elif (not second and not merged_list) or (not second and first > merged_list[-1]):
+        elif (not second and not merged_list) or (
+            not second and first > merged_list[-1]
+        ):
             merged_list.append(first)
         elif not first and second <= merged_list[-1]:
             merged_list.insert(-1, second)
@@ -31,16 +35,21 @@ def merge_lists(my_list: list[int], alices_list: list[int]) -> list[int]:
             merged_list.insert(-1, first)
         else:
             if first > second:
-                compare_tuple_to_last_list_element(merged_list=merged_list, smaller=second, larger=first)
+                compare_tuple_to_last_list_element(
+                    merged_list=merged_list, smaller=second, larger=first
+                )
             else:
-                compare_tuple_to_last_list_element(merged_list=merged_list, smaller=first, larger=second)
+                compare_tuple_to_last_list_element(
+                    merged_list=merged_list, smaller=first, larger=second
+                )
 
     return merged_list
 
+
 # Tests
 
-class Test(unittest.TestCase):
 
+class Test(unittest.TestCase):
     def test_both_lists_are_empty(self):
         actual = merge_lists([], [])
         expected = []

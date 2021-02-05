@@ -6,13 +6,13 @@ def merge_ranges(meetings: list[tuple]) -> list[tuple]:
     merged_meetings = []
     start = meetings[0][0]
     end = meetings[0][1]
-    
+
     for meeting in meetings:
-        # if the beginning of the meeting is greater than the end (of the previous meeting) 
-            # append the start and end times and start new start and end times with the current meeting times
-        # otherwise 
-            # if the meeting's end is greater than the previous end
-                # set the end time to this meetings end time
+        # if the beginning of the meeting is greater than the end (of the previous meeting)
+        # append the start and end times and start new start and end times with the current meeting times
+        # otherwise
+        # if the meeting's end is greater than the previous end
+        # set the end time to this meetings end time
         if meeting[0] > end:
             merged_meetings.append((start, end))
             start = meeting[0]
@@ -20,7 +20,7 @@ def merge_ranges(meetings: list[tuple]) -> list[tuple]:
         else:
             if meeting[1] > end:
                 end = meeting[1]
-    
+
     # append the last meeting
     merged_meetings.append((start, end))
 
@@ -29,8 +29,8 @@ def merge_ranges(meetings: list[tuple]) -> list[tuple]:
 
 # Tests
 
-class Test(unittest.TestCase):
 
+class Test(unittest.TestCase):
     def test_meetings_overlap(self):
         actual = merge_ranges([(1, 3), (2, 4)])
         expected = [(1, 4)]

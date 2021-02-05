@@ -12,24 +12,25 @@ def sort_scores(unsorted_scores: list[int], highest_possible_score: int) -> list
     # incremenet the value of each score in the dictionary
     for score in unsorted_scores:
         all_possible_scores[score] += 1
-    
+
     # iterate through the socre ranges in reverse
     for i in range(highest_possible_score, -1, -1):
         # if the score value is 0 (i.e that score doesnt exist)
-            # continue to the next score
+        # continue to the next score
         # otherwise add the score to the final list, as many times as it appears
         if all_possible_scores[i] == 0:
             continue
-        
+
         num_occurences = all_possible_scores[i]
         sorted_scores.extend([i] * num_occurences)
 
     return sorted_scores
 
+
 # Tests
 
-class Test(unittest.TestCase):
 
+class Test(unittest.TestCase):
     def test_no_scores(self):
         actual = sort_scores([], 100)
         expected = []

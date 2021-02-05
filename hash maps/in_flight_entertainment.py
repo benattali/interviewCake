@@ -14,10 +14,10 @@ def can_two_movies_fill_flight(movie_lengths: list[int], flight_length: int) -> 
 
     for length in movie_lengths:
         # if the length is half the flight time (edge case), then you have to make sure there are at least 2 elements of that length
-            # incremenet the count by 1
-            # if the count is 2 or more, return True
+        # incremenet the count by 1
+        # if the count is 2 or more, return True
         # otherwise if the length is in the complements dictionary it means that there is a movie length which will add up to the total flight time
-            # so return True
+        # so return True
         if length == flight_length / 2:
             count += 1
             if count >= 2:
@@ -27,10 +27,11 @@ def can_two_movies_fill_flight(movie_lengths: list[int], flight_length: int) -> 
 
     return False
 
+
 # Tests
 
-class Test(unittest.TestCase):
 
+class Test(unittest.TestCase):
     def test_short_flight(self):
         result = can_two_movies_fill_flight([2, 4], 1)
         self.assertFalse(result)
